@@ -1,3 +1,2 @@
 #!/bin/bash
-sudo useradd -m betty
 sudo su betty
