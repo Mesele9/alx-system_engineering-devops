@@ -1,2 +1,2 @@
 #!/bin/bash
-mv /tmp/u/[:upper:]* /tmp/sym
+mv /tmp/u/[[:upper:]]* /tmp/sym
