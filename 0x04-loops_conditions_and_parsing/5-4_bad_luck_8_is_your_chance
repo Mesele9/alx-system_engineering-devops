@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# This script loop from 1 to 10 print bad luch for the forth, good luch for the 8th and Best school for the rest
+
+i=1
+while [ $i -le 10 ];
+do 
+	if [ $i = 4 ];
+	then 
+		echo "Bad Luck"
+	elif [ $i = 8 ];
+	then
+		echo "Good Luch"
+	else
+		echo "Best School"
+	fi;
+	((i++))
+
+done
