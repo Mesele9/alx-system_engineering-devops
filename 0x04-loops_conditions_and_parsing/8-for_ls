@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#Write a Bash script that displays:
+#The content of the current directory in a list format
+
+file=$(ls)
+for i in $file;
+do 
+	name=$(echo "$i" | awk -F '-' '{print $2}')
+	echo "$name"
+done
