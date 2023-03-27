@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 # Bash script that uses ssh to connect to your server
-ssh-add ~/.ssh/school 
-ssh ubuntu@54.80.197.65
+ssh -i ~/.ssh/school ubuntu@54.80.197.65
