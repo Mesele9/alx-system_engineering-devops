@@ -1,6 +1,6 @@
 # using Puppet to make changes to our configuration file
 file { '/home/ubuntu/.ssh/config':
-    ensure  => 'present',
+    ensure  => present,
     owner   => 'ubuntu',
     group   => 'ubuntu',
     mode    => '0600',
