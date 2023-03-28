@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 # SSH configuration file for the local SSH client
-Host server
-   Hostname 54.80.197.65
-   User ubuntu
+Host 54.80.197.65
    IdentityFile ~/.ssh/school
    PasswordAuthentication no
