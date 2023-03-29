@@ -1,17 +1,18 @@
 #!/usr/bin/env bash
 # install ngnix web server
 apt-get update
-apt-get install -y nginx
+apt-get -y install nginx
 
-sed -i 's/listsen\s*80;/listen 80 default_server;/g' /etc/nginx/sites-availbale/default
+#sed -i 's/listsen\s*80;/listen 80 default_server;/g' /etc/nginx/sites-availbale/default
 
-/etc/unit.d/nginx restart
+#/etc/unit.d/nginx restart
 
 echo "Hello World!" > /var/www/html/index.html
 
-RESPONSE=$(curl -s http://127.0.0.1)
-if [[ "$RESPONSE" == *"Hello World!"* ]]; then
-  echo "Nginx installed and configured successfully!"
-else
-  echo "Error: Nginx is not serving the correct page."
-fi
+/usr/sbin/nginx
+#RESPONSE=$(curl -s http://127.0.0.1)
+#if [[ "$RESPONSE" == *"Hello World!"* ]]; then
+#  echo "Nginx installed and configured successfully!"
+#else
+#  echo "Error: Nginx is not serving the correct page."
+#fi
