@@ -7,9 +7,9 @@ sudo apt-get install -y --no-install-recommends software-properties-common
 sudo add-apt-repository ppa:vbernat/haproxy-2.7 -y
 sudo apt-get install -y haproxy=2.7.\*
 
-echo "ENABLED=1" > /etc/default/haproxy
+sudo echo "ENABLED=1" > /etc/default/haproxy
 
-cat <<EOF > /etc/haproxy/haproxy.cfg
+sudo cat <<EOF > /etc/haproxy/haproxy.cfg
 frontend http_in
     bind *:80
     mode http
@@ -18,8 +18,8 @@ frontend http_in
 backend http_back
     mode http
     balance roundrobin
-    server web-01 54.80.197.65:80 check
-    server web-02 54.157.160.175:80 check
+    server 119669-web-01 54.80.197.65:80 check
+    server 119669-web-02 54.157.160.175:80 check
 EOF
 
 sudo service haproxy restart 
