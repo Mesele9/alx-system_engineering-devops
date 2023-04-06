@@ -2,15 +2,15 @@
 # Install and configure HAproxy
 
 
-apt-get update
-apt-get install -y --no-install-recommends software-properties-common
-add-apt-repository ppa:vbernat/haproxy-2.7 -y
-apt-get install -y haproxy=2.7.\*
+sudo apt-get update
+sudo apt-get install -y --no-install-recommends software-properties-common
+sudo add-apt-repository ppa:vbernat/haproxy-2.7 -y
+sudo apt-get install -y haproxy=2.7.\*
 
 echo "ENABLED=1" > /etc/default/haproxy
 
 cat <<EOF > /etc/haproxy/haproxy.cfg
-frontend http_front
+frontend http_in
     bind *:80
     mode http
     default_backend http_back
@@ -22,4 +22,4 @@ backend http_back
     server web-02 54.157.160.175:80 check
 EOF
 
-service haproxy start 
+sudo service haproxy restart 
