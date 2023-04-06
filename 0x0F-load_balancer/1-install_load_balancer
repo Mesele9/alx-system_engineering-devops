@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# Install and configure HAproxy
+
 
 apt-get update
 apt-get install -y --no-install-recommends software-properties-common
@@ -9,7 +11,7 @@ echo "ENABLED=1" > /etc/default/haproxy
 
 cat <<EOF > /etc/haproxy/haproxy.cfg
 frontend http_front
-    binf *:80
+    bind *:80
     mode http
     default_backend http_back
 
