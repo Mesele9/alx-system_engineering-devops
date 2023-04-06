@@ -18,8 +18,8 @@ frontend http_front
 backend http_back
     mode http
     balance roundrobin
-    server 119669-web-01 54.80.197.65:80 check
-    server 119669-web-02 54.157.160.175:80 check
+    server web-01 54.80.197.65:80 check
+    server web-02 54.157.160.175:80 check
 EOF
 
 service haproxy start 
