@@ -8,9 +8,10 @@ package {'nginx':
   ensure  => present,
 }
 
-file {'/etc/nginx/nginx.conf':
-  ensure  => present,
-  content => "add_header X-Served-By $hostname;",
+file_line { 'http_header':
+  path  => '/etc/nginx/nginx.conf',
+  match => 'http {',
+  line  => "http {\n\tadd_header X-Served-By \"${hostname}\";",
 }
 
 exec {'run':
