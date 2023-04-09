@@ -1,4 +1,8 @@
-# install nginx
+# install and configure nginx using puppet 
+
+exec {'update':
+  command => '/usr/bin/apt-get update',
+}
 
 package {'nginx':
   ensure  => 'present',
