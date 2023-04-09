@@ -14,5 +14,5 @@ then
   info_dns "$1" "web-02"
 elif [ "$#" == 2 ]
 then
-  info_config "$1" "$2"
+  info_dns "$1" "$2"
 fi
