@@ -5,13 +5,12 @@ exec {'update':
 }
 
 package {'nginx':
-  ensure  => 'present',
+  ensure  => present,
 }
 
-file_line {'http_header':
-  path  => '/etc/nginx/nginx.conf',
-  match => 'http {',
-  line  => "http {\n\ttadd_header X-Served-By \"${hostname}\";",
+file {'/etc/nginx/nginx.conf':
+  ensure  => present,
+  content => "add_header X-Served-By $hostname;",
 }
 
 exec {'run':
