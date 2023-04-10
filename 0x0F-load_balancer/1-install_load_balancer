@@ -18,6 +18,7 @@ SERVER_CONFIG=$(cat <<-END
 	backend http_back
 		balance roundrobin
 		mode http
+		option http-keep-alive
 		server 119669-web-01 54.80.197.65:80 check
 		server 119669-web-02 54.157.160.175:80 check
 		timeout client 30s
