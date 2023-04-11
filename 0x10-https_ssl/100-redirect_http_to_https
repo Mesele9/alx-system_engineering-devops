@@ -1,0 +1,49 @@
+global
+        log /dev/log    local0	
+	log /dev/log    local1 notice
+	chroot /var/lib/haproxy
+	user haproxy
+	group haproxy
+	daemon
+
+	
+defaults	
+	log global
+	mode http
+	option httplog
+	option dontlognull
+	timeout connect 5000
+	timeout client 50000
+	timeout server 50000
+
+
+	
+#Frontend configuration http
+frontend http_front
+	bind *:80
+	mode http
+ 	redirect scheme https code 301 if !{ ssl_fc }
+#	default_backend http_back
+
+
+# Frontend configuration https
+frontend https_front
+	bind *:443 ssl crt /etc/haproxy/certs/www.meseleassefa.tech.pem
+	mode http
+        option forwardfor
+        option http-server-close
+	default_backend http_back
+#       timeout client 30s
+#       timeout connect 30s
+#       timeout server 30s
+
+
+# Backend configuration
+backend http_back
+	balance roundrobin
+	mode http
+	option http-keep-alive
+	server 119669-web-01 54.80.197.65:80 check
+	server 119669-web-02 54.157.160.175:80 check
+	timeout connect 30s
+	timeout server 30s
