@@ -25,4 +25,4 @@ if __name__ == '__main__':
           format(emp_name, completed_task, no_tasks))
 
     for lists in completed_lists:
-        print("\t{}".format(lists["title"]))
+        print("     {}".format(lists["title"]))
