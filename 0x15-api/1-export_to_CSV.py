@@ -18,5 +18,5 @@ if __name__ == '__main__':
 
     with open('{}.csv'.format(emp_id), 'w') as f:
         for lists in todo_list:
-            f.write("{}, {}, {}, {}\n".
+            f.write('"{}","{}","{}","{}"\n'.
                     format(id, username, lists['completed'], lists['title']))
