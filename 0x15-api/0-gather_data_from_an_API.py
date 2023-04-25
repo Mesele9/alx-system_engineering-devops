@@ -7,7 +7,7 @@ import sys
 
 if __name__ == '__main__':
     emp_id = sys.argv[1]
-    user_url= "https://jsonplaceholder.typicode.com/users"
+    user_url = "https://jsonplaceholder.typicode.com/users"
     user_response = requests.get("{}/{}".format(user_url, emp_id))
     user = user_response.json()
     emp_name = user['name']
