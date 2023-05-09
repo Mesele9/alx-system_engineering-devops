@@ -15,7 +15,7 @@ def top_ten(subreddit):
     user_agent = {'User-agent': "Google Chrome version 112.0.5615.121"}
     params = {'limit': 10}
     url = 'https://www.reddit.com/r/{}/hot/.json'.format(subreddit)
-    
+
     response = get(url, headers=user_agent, params=params)
     result = response.json()
 
