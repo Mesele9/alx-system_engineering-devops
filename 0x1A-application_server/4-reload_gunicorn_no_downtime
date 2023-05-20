@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# a simple bash script to reload gunicorn in graceful way
+
+PGREP_VAR="gunicorn"
+PIDS=$(pgrep -f "$PGREP_VAR")
+
+for PID in $PIDS; do
+        kill -USR2 "$PID"
+done
